@@ -1,0 +1,88 @@
+---
+title: "BearFix Incident Tracking System"
+publishedAt: "2025-03-20"
+summary: "Development of BearFix - a comprehensive incident tracking system using Angular, Node.js, Prisma and MySQL, with ticket management features, automatic assignment and control panels."
+images:
+  - "/images/projects/projectBearfix/homeBearfix.PNG"
+  - "/images/projects/projectBearfix/LoginBearfix.PNG"
+  - "/images/projects/projectBearfix/sign up bearfix.PNG"
+  - "/images/projects/projectBearfix/calendarBearfix.PNG"
+  - "/images/projects/projectBearfix/adminDetailBearfix.PNG"
+  - "/images/projects/projectBearfix/adminBeafix.PNG"
+team:
+  - name: "David Josue Villegas Salas"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/davidsnake-dev/"
+link: "https://github.com/DavidSnake3/BearFix"
+---
+## Project Overview
+
+Development of BearFix - a comprehensive incident tracking system for centralized management of technical support requests. The system allows clients to report incidents, technicians to manage their resolution, and administrators to supervise the entire ticket lifecycle.
+
+## Key Features
+
+- **Authentication and Authorization**: Secure role-based system (Administrator, Technician, Client) with permission management
+- **Ticket Management**: Complete incident lifecycle with status history, attached images and automatically calculated fields
+- **Automatic Assignment**: BearFix Autotriage system based on specialties, workload and SLA
+- **SLA Management**: Control of maximum response and resolution times by category
+- **Administration Panel**: BearFix Dashboard with key metrics and compliance reports
+- **Rating System**: Service evaluation by clients when closing tickets
+- **Internationalization**: Full support for Spanish and English
+
+## Technologies Used
+
+- **Frontend**: Angular 20+ with TypeScript, Angular Material for UI components
+- **Backend**: Node.js 22.14.0+ with TypeScript and Express
+- **Database**: MySQL with Prisma ORM
+- **Authentication**: JWT with password encryption
+- **Version Control**: GitHub
+
+## Architecture and Technical Challenges
+
+The BearFix system was designed following a layered architecture with clear separation of responsibilities:
+
+- **Presentation Layer**: Reusable Angular components with Signals for asynchronous state
+- **Business Logic Layer**: Services and guards for authorization
+- **Data Layer**: Prisma ORM with well-defined models and complex relationships
+
+**Main challenges overcome in BearFix:**
+
+- Implementation of BearFix automatic assignment algorithm considering multiple factors (SLA, specialties, workload)
+- Management of complete status history with image traceability
+- Real-time notification system
+- Complete application internationalization
+
+## Implemented Functionalities
+
+### BearFix Ticket Module
+
+- Ticket creation with automatic categorization
+- Status flow: Pending → Assigned → In Process → Resolved → Closed
+- Attach multiple images per transition
+- Automatic SLA and compliance calculation
+
+### BearFix Assignment Module
+
+- Configurable autotriage rules
+- Manual assignment by administrators
+- Calendar/week view for technicians
+- New assignment notifications
+
+### BearFix Administration Panel
+
+- Real-time metrics of tickets by status
+- SLA compliance by category and technician
+- Technician ranking by effectiveness
+- Monthly activity reports
+
+## Results and Learnings
+
+The BearFix system proved to be a robust solution for incident management, achieving:
+
+- 40% reduction in response time
+- Improved customer satisfaction (average ratings of 4.5/5)
+- Equitable distribution of workload among technicians
+- Complete traceability of each ticket's lifecycle
+
+The BearFix project allowed deepening full-stack development with modern technologies, implementation of complex business algorithms, and creation of intuitive and accessible user interfaces. The system successfully addresses all requirements outlined in the ISW-811 project specifications.

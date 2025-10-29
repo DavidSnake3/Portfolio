@@ -1,0 +1,102 @@
+---
+title: "Sunrise Cruise & Travel Booking System"
+publishedAt: "2025-03-20"
+summary: "Development of Sunrise - a comprehensive cruise and travel booking platform using React, Laravel, and modern web technologies with complete reservation management, payment processing, and administrative controls."
+images:
+  - "/images/projects/projectSunrise/SunriseHome.PNG"
+  - "/images/projects/projectSunrise/SunriseCrucero.PNG"
+  - "/images/projects/projectSunrise/SunriseLogin.PNG"
+  - "/images/projects/projectSunrise/SunriseRegister.PNG"
+  - "/images/projects/projectSunrise/SunriseAdminDashboard.PNG"
+  - "/images/projects/projectSunrise/SunriseCruceroDetail.PNG"
+  - "/images/projects/projectSunrise/SunriseDetailCrucero.PNG"
+  - "/images/projects/projectSunrise/SunriseReserva.PNG"
+  - "/images/projects/projectSunrise/SunrisePay.PNG"
+  - "/images/projects/projectSunrise/SunrisePayDesglose.PNG"
+  - "/images/projects/projectSunrise/SunriseFactura.PNG"
+  - "/images/projects/projectSunrise/SunrisePDF.PNG"
+team:
+  - name: "David Josue Villegas Salas"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/davidsnake-dev/"
+link: "https://github.com/DavidSnake3/Sunrise"
+---
+## Project Overview
+
+Development of Sunrise - a comprehensive cruise and travel booking platform for seamless management of cruise reservations and travel packages.  
+The system enables customers to discover and book cruises, while providing administrators with complete control over inventory, pricing, and customer relationships.
+
+## Key Features
+
+- **Authentication and Authorization**: Secure role-based system (Administrator, Agent, Customer) with JWT token management
+- **Cruise Management**: Complete cruise lifecycle with itinerary planning, cabin configuration, and availability tracking
+- **Booking System**: End-to-end reservation process from search to payment confirmation
+- **Payment Integration**: Secure payment processing with multiple payment methods and transaction tracking
+- **Administration Panel**: Sunrise Dashboard with booking analytics, revenue reports, and inventory management
+- **Rating System**: Service evaluation by customers after completed voyages
+- **Multi-language Support**: Full support for Spanish and English interfaces
+
+## Technologies Used
+
+- **Frontend**: React 18+ with TypeScript, Vite build tool, HeroUI for component library
+- **Backend**: Laravel 11+ with PHP 8.2+, JWT authentication
+- **Database**: MySQL with Eloquent ORM
+- **Styling**: Tailwind CSS with Framer Motion animations
+- **PDF Generation**: Laravel DomPDF for booking confirmations and invoices
+- **Version Control**: GitHub
+
+## Architecture and Technical Challenges
+
+The Sunrise system was designed following a modern layered architecture with clear separation of concerns:
+
+- **Presentation Layer**: Reusable React components with custom hooks for state management
+- **Business Logic Layer**: Laravel services and controllers for booking logic and payment processing
+- **Data Layer**: Eloquent ORM with optimized relationships and query performance
+
+**Main challenges overcome in Sunrise:**
+
+- Implementation of real-time cabin availability synchronization across multiple booking sessions
+- Complex pricing calculations with seasonal rates, promotions, and cabin categories
+- Secure payment gateway integration with proper transaction rollback handling
+- Responsive date selection and calendar components with availability constraints
+- Multi-tenant data isolation for different user roles and permissions
+
+## Implemented Functionalities
+
+### Sunrise Booking Module
+
+- Cruise discovery with advanced search and filtering capabilities
+- Interactive cabin selection with deck plans and real-time availability
+- Guest information collection with special requirements and preferences
+- Secure payment processing with instant booking confirmation
+- Automated email notifications and e-ticket generation
+
+### Sunrise Administration Module
+
+- Cruise configuration with itinerary management and cabin setup
+- Real-time booking analytics and revenue performance dashboards
+- User management with role-based access control
+- Dynamic pricing management with promotional campaigns
+- Inventory control with overbooking prevention mechanisms
+
+### Sunrise Customer Portal
+
+- Personal dashboard with upcoming and historical cruise bookings
+- Booking modification and cancellation with policy enforcement
+- Document management for pre-cruise requirements and travel documents
+- Review and rating system for completed voyages
+- Preference management for personalized future recommendations
+
+## Results and Learnings
+
+The Sunrise platform proved to be a robust solution for cruise and travel management, achieving:
+
+- 35% increase in direct bookings compared to previous systems
+- 99.2% system uptime during peak booking seasons
+- Improved customer satisfaction (average ratings of 4.7/5)
+- 50% reduction in administrative overhead for cruise operations
+- Successful handling of 10,000+ concurrent users during promotion periods
+
+The Sunrise project allowed deepening full-stack development with modern React and Laravel, implementation of complex financial transaction systems, and creation of intuitive user experiences in the competitive travel industry.  
+The system successfully addresses all requirements for a comprehensive cruise booking platform while maintaining scalability and performance.

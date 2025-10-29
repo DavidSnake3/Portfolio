@@ -19,7 +19,6 @@ export {
   fonts,
   style,
   schema,
-  sameAs,
   socialSharing,
   effects,
   dataStyle,

@@ -1,0 +1,134 @@
+---
+title: "TechAcademy — Internal Training & Certification System"
+publishedAt: "2025-10-29"
+summary: "Development of TechAcademy: an internal employee training and certification platform that centralizes courses, dynamic materials and exams, automates enrollment and certificate generation, and integrates with enterprise APIs (Power Automate / Dataverse) for synchronization and reporting."
+images:
+  - "/images/projects/projectTechAcademy/TechLogin.PNG"
+  - "/images/projects/projectTechAcademy/TechDashboard.PNG"
+  - "/images/projects/projectTechAcademy/Avisos.PNG"
+  - "/images/projects/projectTechAcademy/TechCursoDetail.PNG"
+  - "/images/projects/projectTechAcademy/TechCursoMaterial.PNG"
+  - "/images/projects/projectTechAcademy/TechCursoExamen.PNG"
+  - "/images/projects/projectTechAcademy/ResultadoExamen.PNG"
+  - "/images/projects/projectTechAcademy/ResultadoExamen2.PNG"
+  - "/images/projects/projectTechAcademy/CursoFinalizado.PNG"
+  - "/images/projects/projectTechAcademy/CreacionCursoMaterial.PNG"
+  - "/images/projects/projectTechAcademy/CreacionCursoConfiguracion.PNG"
+  - "/images/projects/projectTechAcademy/CreacionCursoConfiguracionExamen.PNG"
+  - "/images/projects/projectTechAcademy/TechLoad.PNG"
+team:
+  - name: "David Josue Villegas Salas"
+    role: "Full Stack / Backend Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/davidsnake-dev/"
+link: "https://github.com/DavidSnake3/TechsopAcademy"
+---
+## Project Overview
+
+TechAcademy is an internal corporate training and certification system that allows employees to enroll in courses, review course materials, take dynamic exams and obtain automated certifications once they pass. The platform streamlines employee training operations, improves learning traceability and provides HR and management with reliable reporting and certificates.
+
+## Key Features
+
+- **Administrative Management**: Admins create and manage available, in-progress and completed courses; configure scope (departments, groups, or individual employees); and define enrollment rules.
+- **Dynamic Forms**: Course materials and exams are created using dynamic forms that allow any number of sections, questions and content types (documents, video links, file uploads).
+- **Dashboard**: Personalized employee dashboard with notices, available courses, courses in progress and completed courses; quick access to course detail, enrollment and progress.
+- **Exam Engine**: Timed, sectioned exams with partial saves, automatic grading, attempt history and per-question feedback.
+- **PDF Certificate Generation**: Automatic generation of certificate PDFs upon passing, with templated fields (employee name, course, score, date) and optional signature metadata.
+- **Integration with Power Platform / Dataverse**: APIs implemented with Power Automate that sync users, enrollments and results with Dataverse and other internal systems.
+- **Enrollment & Progress Control**: Manual or rule-based enrollments (by role, department or performance) with progress tracking per employee and per course.
+- **Analytics & Reporting**: Reports for pass rates, most-used courses, completion compliance by department and other KPIs.
+- **Security & Roles**: Role-based access (Administrator, Instructor, Employee) with fine-grained permissions for content and reporting.
+- **API Testing & Documentation**: Endpoints designed with Postman collections for testing and integration.
+
+## Technologies Used
+
+- **Backend**: ASP.NET Core (C#) with layered architecture (Domain / Application / Infrastructure)
+- **Frontend / Views**: MVC using Razor Pages and server-side rendering
+- **Database**: SQL Server
+- **Integration**: Power Automate (APIs) integrated with Dataverse
+- **APIs & Testing**: Postman collections and example requests/responses (JSON)
+- **Document Generation**: PDF generation libraries for certificates and report exports
+- **Other**: Logging, auditing, background jobs for notifications and periodic sync tasks
+
+## Architecture and Technical Challenges
+
+TechAcademy was designed following a layered architecture to promote separation of concerns and maintainability:
+
+- **Presentation Layer**: Razor MVC views and reusable partials for dashboard, course detail and exam flows.
+- **Application Layer**: Use-cases and services orchestrating enrollment, exam execution, scoring and certificate generation.
+- **Domain Layer**: Entities and business rules (approval thresholds, retake policies, eligibility).
+- **Infrastructure Layer**: Repositories for SQL Server, integrations with Power Automate/Dataverse and PDF generation services.
+
+**Primary challenges solved:**
+
+- Building dynamic forms for both course materials and exams allowing multiple question types and multimedia.
+- Integrating with Power Automate/Dataverse to sync employees and results without exposing internal DBs.
+- Designing an exam engine that supports timing, partial saves, reattempt rules and full audit trails.
+- Generating corporate-styled PDF certificates with metadata for HR traceability.
+- Ensuring scalability to handle concurrent exam windows and peak loads.
+
+## Implemented Functionality
+
+### Administrative Module
+- Create, edit and retire courses.
+- Define course scope: departments, roles, custom groups or individual employees.
+- Configure dynamic materials and exams using form builders.
+- View and filter courses by state: available, in progress, completed.
+- Assign courses manually or set automated assignment rules.
+
+### Dashboard (Home)
+- Employee summary: notices, current enrollments, progress and certificates.
+- Quick access to enroll, continue a course or review completed course details.
+- Visual indicators of deadlines and required readings.
+
+### Course & Materials Management
+- Course detail view with description, objectives, estimated duration and materials.
+- Materials organized by sections (documents, videos, external links).
+- Option to set mandatory reading checkpoints prior to enabling the exam.
+
+### Exam Engine
+- Dynamic exams (multiple choice, true/false, short answer, file-based questions).
+- Per-exam time control, section navigation and partial-save functionality.
+- Automatic scoring with immediate results and detailed feedback (correct vs incorrect).
+- History of attempts with timestamps and scored results.
+
+### Enrollment & Progress
+- Enrollment from course detail or via admin assignment.
+- States tracked per user: enrolled, in progress, completed, certified.
+- Time-on-task tracking and progress logs per module.
+
+### Certification & Results
+- Automatic PDF certificate generation on pass (employee info, course, score, date).
+- Result page showing correct/incorrect answers and scoring breakdown.
+- Notifications via email (and Dataverse logs) upon certification.
+
+### Reporting & Analytics
+- Reports by course, department and timeframe (pass rates, average attempts, completion time).
+- Export options to Excel/PDF for HR and management.
+- Dashboards summarizing training coverage and certification statuses.
+
+### Integrations & APIs
+- Power Automate flows to synchronize employee lists, assignments and exam results with Dataverse.
+- Well-documented endpoints with Postman collections for integration and QA.
+- Secure API access with role-based tokens and logging.
+
+## Results and Learnings
+
+- Centralized training management reduced administrative coordination time and improved reporting accuracy.
+- Better traceability: every course, attempt and certificate is auditable for compliance.
+- Dynamic forms provided flexibility to reuse course and exam templates across departments.
+- Integrating with Dataverse via Power Automate reduced manual synchronization errors.
+- UX learnings: save-progress and clear navigation meaningfully reduced abandonment during exams.
+
+**Quantitative outcomes (example metrics):**
+- ~30% reduction in manual administrative effort for course assignments.
+- Increased certification throughput and faster onboarding for new hires.
+- Improved reporting accuracy for HR and compliance audits.
+
+## Next Steps & Suggestions
+
+- Expand analytics with time-series dashboards for long-term training trends.
+- Add adaptive testing features (difficulty adjustment based on performance).
+- Implement single sign-on (SSO) for improved corporate authentication.
+- Add instructor tools for question banks, item analysis and quality calibration.
+
