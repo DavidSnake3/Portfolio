@@ -15,7 +15,7 @@ const person: Person = {
   lastName: "Villegas Salas",
   name: `David Josue Villegas Salas`,
   role: "Software Developer",
-  avatar: "/images/avatar.jpg",
+  avatar: "/Portfolio/images/avatar.jpg",
   email: "davidjosuevillegassalas@gmail.com",
   location: "America/Costa_Rica",
   languages: ["Spanish", "English"],
