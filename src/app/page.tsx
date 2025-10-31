@@ -14,6 +14,7 @@ import {
 import { home, about, person, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
+import { ContactForm } from "@/components/ContactForm";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -103,7 +104,7 @@ export default function Home() {
         <Projects range={[1, 1]} />
       </RevealFx>
       <Projects range={[2]} />
-      <Mailchimp />
+      <ContactForm />
     </Column>
   );
 }

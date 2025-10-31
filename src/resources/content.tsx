@@ -14,7 +14,7 @@ const person: Person = {
   firstName: "David Josue",
   lastName: "Villegas Salas",
   name: `David Josue Villegas Salas`,
-  role: "Software Developer",
+  role: "Software Engineer",
   avatar: "/Portfolio/images/avatar.jpg",
   email: "davidjosuevillegassalas@gmail.com",
   location: "America/Costa_Rica",
@@ -22,7 +22,7 @@ const person: Person = {
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>My weekly newsletter about software development and technology</>
@@ -53,7 +53,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building innovative software solutions</>,
+  headline: <>Software Engineer Full-Stack</>,
   featured: {
     display: true,
     title: (
@@ -69,9 +69,9 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm David, a Software Developer with more than 3 years of experience
-      <br />I am a humble and true-to-word person, I love solving problems and
-      learning every day.
+      Hello, I'm David, a software developer with over three years of experience
+      focused on projecting my moral and ethical values ​​in every project to
+      provide high-quality tools and meet your business expectations.
     </>
   ),
 };
@@ -97,12 +97,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Software developer with over three years of experience in software
-        development. Throughout my academic and professional career, I have
-        developed multiple projects using both legacy and new technologies. I
-        have contributed to work projects where I optimized processes and
-        achieved a 40% increase in productivity efficiency through workflow
-        automation.
+        Software developer with over three years of experience. Throughout my
+        academic and professional career, I have developed numerous projects
+        using both traditional and cutting-edge technologies. Through my
+        projects, I have contributed to process optimization, which has
+        increased productivity by up to 40% through workflow automation.
       </>
     ),
   },
@@ -166,15 +165,12 @@ const about: About = {
     institutions: [
       {
         name: "Universidad Técnica Nacional",
-        description: <>Software Engineering - January 2023 to Present</>,
+        description: <>Software Engineering - January 2023 to 2026</>,
       },
       {
         name: "CTP Rosario Naranjo",
         description: (
-          <>
-            Executive Technician for Service Center - February 2016 to December
-            2022
-          </>
+          <>Executive Technician for Service Center - Graduated 2022</>
         ),
       },
     ],
@@ -187,8 +183,8 @@ const about: About = {
         title: "Programming Languages",
         description: (
           <>
-            Proficient and experienced with a variety of modern programming languages
-            used in backend, frontend, and scripting development.
+            Proficient and experienced with a variety of modern programming
+            languages used in backend, frontend, and scripting development.
           </>
         ),
         tags: [
@@ -209,8 +205,8 @@ const about: About = {
         title: "Frameworks & Libraries",
         description: (
           <>
-            Familiar with modern frameworks and libraries used to build scalable,
-            responsive, and maintainable applications.
+            Familiar with modern frameworks and libraries used to build
+            scalable, responsive, and maintainable applications.
           </>
         ),
         tags: [
@@ -235,8 +231,8 @@ const about: About = {
         title: "Microsoft Power Platform",
         description: (
           <>
-            Experienced with Microsoft low-code tools for automation,
-            analytics, and business solutions.
+            Experienced with Microsoft low-code tools for automation, analytics,
+            and business solutions.
           </>
         ),
         tags: [
@@ -251,8 +247,8 @@ const about: About = {
         title: "Databases & Cloud",
         description: (
           <>
-            Knowledgeable in relational and non-relational databases,
-            as well as cloud computing and deployment services.
+            Knowledgeable in relational and non-relational databases, as well as
+            cloud computing and deployment services.
           </>
         ),
         tags: [
@@ -285,7 +281,8 @@ const about: About = {
         title: "Testing & Methodologies",
         description: (
           <>
-            Experience applying testing frameworks and agile development methodologies.
+            Experience applying testing frameworks and agile development
+            methodologies.
           </>
         ),
         tags: [
