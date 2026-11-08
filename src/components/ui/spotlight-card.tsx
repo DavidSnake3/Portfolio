@@ -1,10 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRef, type ReactNode, type MouseEvent } from "react";
+import { useRef, type MouseEvent, type ReactNode } from "react";
 
-/** Card whose border and surface light up under the cursor. */
-export function SpotlightCard({ children, className }: { children: ReactNode; className?: string }) {
+/** Card whose border and surface light up softly under the cursor. */
+export function SpotlightCard({ children, className, inner }: { children: ReactNode; className?: string; inner?: string }) {
   const ref = useRef<HTMLDivElement>(null);
 
   function onMove(e: MouseEvent<HTMLDivElement>) {
@@ -20,13 +20,18 @@ export function SpotlightCard({ children, className }: { children: ReactNode; cl
       ref={ref}
       onMouseMove={onMove}
       className={cn(
-        "group relative overflow-hidden rounded-2xl border border-line bg-surface/80 p-px transition-colors duration-300",
-        "before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100",
-        "before:bg-[radial-gradient(420px_circle_at_var(--x)_var(--y),rgb(110_168_255/0.35),transparent_45%)]",
+        "group relative overflow-hidden rounded-[1.25rem] border border-line bg-surface p-px shadow-[var(--card-shadow)] transition-colors duration-300",
+        "before:pointer-events-none before:absolute before:inset-0 before:rounded-[1.25rem] before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100",
+        "before:bg-[radial-gradient(380px_circle_at_var(--x)_var(--y),color-mix(in_oklab,var(--accent)_45%,transparent),transparent_45%)]",
         className,
       )}
     >
-      <div className="relative h-full rounded-[15px] bg-surface [background-image:radial-gradient(500px_circle_at_var(--x)_var(--y),rgb(110_168_255/0.07),transparent_45%)]">
+      <div
+        className={cn(
+          "relative h-full rounded-[calc(1.25rem-1px)] bg-surface [background-image:radial-gradient(520px_circle_at_var(--x)_var(--y),color-mix(in_oklab,var(--accent)_7%,transparent),transparent_45%)]",
+          inner,
+        )}
+      >
         {children}
       </div>
     </div>
