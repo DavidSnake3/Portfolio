@@ -23,14 +23,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#05080f" },
-    { media: "(prefers-color-scheme: light)", color: "#f4f6fb" },
-  ],
+  themeColor: "#05080f",
 };
 
-// Sets the theme before the first paint (saved choice, otherwise the system preference).
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='dark'}})();`;
+// Dark by default for everyone. Light only if the visitor picked it with the toggle (saved in this browser).
+const themeScript = `(function(){var t='dark';try{if(localStorage.getItem('pf-theme')==='light'){t='light'}}catch(e){}document.documentElement.dataset.theme=t})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

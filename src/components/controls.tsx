@@ -2,8 +2,71 @@
 
 import { langPath, type Lang } from "@/lib/i18n";
 import { asset, cn } from "@/lib/utils";
-import { Check, Copy, Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Check, ChevronRight, Copy, Menu, Moon, Sun, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+
+/** Section menu for phones and small tablets (the desktop bar shows the links inline). */
+export function MobileMenu({ links, label }: { links: { href: string; label: string }[]; label: string }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onDown = (e: PointerEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("pointerdown", onDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pointerdown", onDown);
+    };
+  }, [open]);
+
+  return (
+    <div ref={ref} className="md:hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-label={label}
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+        className="grid size-8 place-items-center rounded-full border border-line bg-surface-2/70 text-fg/80 transition-colors hover:text-fg"
+      >
+        {open ? <X className="size-4" /> : <Menu className="size-4" />}
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            transition={{ duration: 0.16 }}
+            className="absolute inset-x-0 top-full mt-2 origin-top rounded-3xl border border-line-strong bg-surface p-2 shadow-[0_24px_48px_-24px_rgb(0_0_0/0.6)]"
+          >
+            <ul className="grid gap-0.5">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-between rounded-2xl px-4 py-3 text-[15px] font-medium text-fg/90 transition-colors hover:bg-surface-2 active:bg-surface-2"
+                  >
+                    {l.label}
+                    <ChevronRight className="size-4 text-muted" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 /** EN | ES switch. Keeps the section you were reading (#hash) when changing language. */
 export function LangToggle({ lang, label }: { lang: Lang; label: string }) {
@@ -42,7 +105,7 @@ export function ThemeToggle({ label }: { label: string }) {
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
-    try { localStorage.setItem("theme", next); } catch {}
+    try { localStorage.setItem("pf-theme", next); } catch {}
     setTheme(next);
   };
   return (

@@ -18,7 +18,7 @@ export function Skills({ lang }: { lang: Lang }) {
           ))}
         </Marquee>
       </BlurFade>
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {skills.map((g, i) => (
           <BlurFade key={g.group.en} delay={0.03 * i}>
             <div className="card h-full p-5">

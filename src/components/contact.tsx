@@ -11,18 +11,20 @@ export function Contact({ lang }: { lang: Lang }) {
   return (
     <Section id="contact" label={t(ui.sections.contact.label, lang)} title={t(ui.sections.contact.title, lang)}>
       <BlurFade>
-        <div className="card relative overflow-hidden p-6 sm:p-10">
+        <div className="card relative overflow-hidden p-5 sm:p-10">
           <div className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-accent/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-28 left-1/3 size-72 rounded-full bg-accent-2/15 blur-3xl" />
-          <p className="relative max-w-2xl text-lg leading-relaxed text-fg/90">{t(ui.contact.text, lang)}</p>
+          <p className="relative max-w-2xl text-base leading-relaxed text-fg/90 sm:text-lg">{t(ui.contact.text, lang)}</p>
+          <p className="relative mt-3 break-all font-mono text-xs text-muted sm:hidden">{profile.email}</p>
 
           <div className="relative mt-8 flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${profile.email}`}
               className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_var(--accent)] transition-transform hover:-translate-y-0.5"
             >
-              <Mail className="size-4" />
-              {profile.email}
+              <Mail className="size-4 shrink-0" />
+              <span className="sm:hidden">{t(ui.contact.emailMe, lang)}</span>
+              <span className="hidden sm:inline">{profile.email}</span>
             </a>
             <CopyEmail email={profile.email} copy={t(ui.contact.copy, lang)} copied={t(ui.contact.copied, lang)} />
           </div>

@@ -3,7 +3,7 @@
 - Inglés: **https://davidsnake3.github.io/Portfolio/**
 - Español: **https://davidsnake3.github.io/Portfolio/es/**
 
-Next.js 15 (exportación estática) + Tailwind CSS 4 + Motion. Tema claro/oscuro y selector EN/ES en la barra superior; el sitio recuerda la elección en cada navegador.
+Next.js 15 (exportación estática) + Tailwind CSS 4 + Motion. El sitio abre siempre en **tema oscuro**; el botón ☀/☾ de la barra superior cambia a claro, y el selector EN/ES cambia el idioma. Cada navegador recuerda la elección de quien lo visita.
 
 ## Cambiar contenido (sin tocar diseño)
 - **`src/data/profile.ts`**: todo el contenido (perfil, experiencia, proyectos, habilidades, educación y certificaciones). Cada texto tiene su versión `en` y `es`, una al lado de la otra.

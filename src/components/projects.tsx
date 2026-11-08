@@ -31,7 +31,7 @@ export function Projects({ lang }: { lang: Lang }) {
         ))}
       </div>
 
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {rest.map((p, i) => (
           <BlurFade key={p.slug} delay={0.05 * (i % 2)}>
             <ProjectCard project={p} lang={lang} onOpen={(index) => setOpen({ project: p, index })} />
@@ -89,8 +89,8 @@ function Links({ project, lang, onOpen }: { project: Project; lang: Lang; onOpen
 
 function FeaturedCard({ project: p, lang, reverse, onOpen }: { project: Project; lang: Lang; reverse: boolean; onOpen: (i: number) => void }) {
   return (
-    <SpotlightCard inner="grid overflow-hidden lg:grid-cols-[1.05fr_1fr]">
-      <div className={cn("flex flex-col p-6 sm:p-8", reverse && "lg:order-2")}>
+    <SpotlightCard inner="grid grid-cols-1 overflow-hidden lg:grid-cols-[1.05fr_1fr]">
+      <div className={cn("flex min-w-0 flex-col p-5 sm:p-8", reverse && "lg:order-2")}>
         <div className="flex items-center gap-3">
           {p.logo && <img src={asset(p.logo)} alt="" aria-hidden className="h-7 w-auto" />}
           <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent">
@@ -120,7 +120,7 @@ function FeaturedCard({ project: p, lang, reverse, onOpen }: { project: Project;
         {p.note && <p className="mt-4 text-[11px] leading-relaxed text-muted/80">{t(p.note, lang)}</p>}
       </div>
 
-      <div className={cn("relative min-h-[280px] overflow-hidden border-t border-line lg:border-t-0", reverse ? "lg:order-1 lg:border-r" : "lg:border-l")}>
+      <div className={cn("relative min-h-[300px] overflow-hidden border-t border-line sm:min-h-[420px] lg:min-h-[280px] lg:border-t-0", reverse ? "lg:order-1 lg:border-r" : "lg:border-l")}>
         {p.slug === "erp" ? <ErpVisual project={p} lang={lang} /> : <PhonesVisual project={p} onOpen={onOpen} />}
       </div>
     </SpotlightCard>
@@ -184,7 +184,7 @@ function ProjectCard({ project: p, lang, onOpen }: { project: Project; lang: Lan
           {p.gallery.length} <Images className="ml-0.5 inline size-3" />
         </span>
       </button>
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
             <h3 className="font-semibold text-fg">{p.title}</h3>
@@ -259,15 +259,27 @@ function Gallery({ project: p, start, lang, onClose }: { project: Project; start
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.985 }}
             transition={{ duration: 0.2 }}
-            className={cn("max-h-[72vh] rounded-xl border border-white/10 object-contain shadow-2xl", p.portrait ? "w-auto" : "w-full")}
+            drag={n > 1 ? "x" : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.35}
+            onDragEnd={(_, info) => {
+              if (info.offset.x < -60 || info.velocity.x < -500) next();
+              else if (info.offset.x > 60 || info.velocity.x > 500) prev();
+            }}
+            draggable={false}
+            className={cn(
+              "max-h-[72dvh] max-w-full touch-pan-y select-none rounded-xl border border-white/10 object-contain shadow-2xl",
+              p.portrait ? "w-auto" : "w-full",
+              n > 1 && "cursor-grab active:cursor-grabbing",
+            )}
           />
         </AnimatePresence>
         {n > 1 && (
           <>
-            <button type="button" onClick={prev} aria-label={t(ui.projects.previous, lang)} className="absolute left-0 grid size-11 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 sm:-left-2">
+            <button type="button" onClick={prev} aria-label={t(ui.projects.previous, lang)} className="absolute left-0 grid size-9 place-items-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-white/20 sm:-left-2 sm:size-11 sm:bg-white/10">
               <ChevronLeft className="size-5" />
             </button>
-            <button type="button" onClick={next} aria-label={t(ui.projects.next, lang)} className="absolute right-0 grid size-11 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 sm:-right-2">
+            <button type="button" onClick={next} aria-label={t(ui.projects.next, lang)} className="absolute right-0 grid size-9 place-items-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-white/20 sm:-right-2 sm:size-11 sm:bg-white/10">
               <ChevronRight className="size-5" />
             </button>
           </>

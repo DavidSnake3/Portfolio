@@ -8,12 +8,12 @@ import { Award, GraduationCap, Languages } from "lucide-react";
 export function Education({ lang }: { lang: Lang }) {
   return (
     <Section id="education" label={t(ui.sections.education.label, lang)} title={t(ui.sections.education.title, lang)}>
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="space-y-4">
           {education.map((e, i) => (
             <BlurFade key={e.place} delay={0.05 * i}>
-              <div className="card flex gap-4 p-5">
-                <div className="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-surface-2 text-accent">
+              <div className="card flex gap-4 p-4 sm:p-5">
+                <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-surface-2 text-accent sm:size-11">
                   <GraduationCap className="size-5" />
                 </div>
                 <div className="min-w-0">
@@ -30,11 +30,11 @@ export function Education({ lang }: { lang: Lang }) {
             </BlurFade>
           ))}
           <BlurFade delay={0.1}>
-            <div className="card flex gap-4 p-5">
-              <div className="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-surface-2 text-accent-2">
+            <div className="card flex gap-4 p-4 sm:p-5">
+              <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-surface-2 text-accent-2 sm:size-11">
                 <Languages className="size-5" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="font-semibold text-fg">{t(ui.education.languages, lang)}</h3>
                 <ul className="mt-1 space-y-0.5 text-sm text-muted">
                   {languages.map((l) => (
@@ -47,7 +47,7 @@ export function Education({ lang }: { lang: Lang }) {
         </div>
 
         <BlurFade delay={0.05}>
-          <div className="card h-full p-5">
+          <div className="card h-full p-4 sm:p-5">
             <div className="flex items-center gap-2">
               <Award className="size-4 text-accent" />
               <h3 className="font-semibold text-fg">{t(ui.education.certifications, lang)}</h3>
@@ -56,7 +56,7 @@ export function Education({ lang }: { lang: Lang }) {
               {certifications.map((c) => (
                 <li key={c.name} className="flex items-center justify-between gap-4 py-2.5">
                   <div className="min-w-0">
-                    <p className="truncate text-sm text-fg/90">{c.name}</p>
+                    <p className="text-sm text-pretty text-fg/90">{c.name}</p>
                     <p className="text-xs text-muted">{c.issuer}</p>
                   </div>
                   <span className="shrink-0 font-mono text-xs text-muted">{c.year}</span>

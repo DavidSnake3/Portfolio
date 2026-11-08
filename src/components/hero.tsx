@@ -15,11 +15,11 @@ export function Hero({ lang }: { lang: Lang }) {
 
   return (
     <section id="top" className="pt-28 pb-6 sm:pt-32">
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {/* Profile */}
         <BlurFade className="sm:col-span-2 lg:row-span-2">
-          <SpotlightCard className="h-full" inner="flex h-full flex-col p-6 sm:p-8">
-            <div className="flex items-center gap-4">
+          <SpotlightCard className="h-full" inner="flex h-full flex-col p-5 min-[400px]:p-6 sm:p-8">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <div className="relative shrink-0">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-accent via-accent-2 to-accent opacity-60 blur-[6px]" />
                 <img
@@ -27,10 +27,10 @@ export function Hero({ lang }: { lang: Lang }) {
                   alt={profile.fullName}
                   width={76}
                   height={76}
-                  className="relative size-[76px] rounded-full border border-line-strong object-cover"
+                  className="relative size-16 rounded-full border border-line-strong object-cover min-[400px]:size-[76px]"
                 />
               </div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-ok/25 bg-ok/10 px-3 py-1 text-xs font-medium text-ok">
+              <span className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-ok/25 bg-ok/10 px-3 py-1 text-xs font-medium text-ok">
                 <span className="relative flex size-2">
                   <span className="absolute inline-flex size-full animate-pulse-ring rounded-full bg-ok" />
                   <span className="relative inline-flex size-2 rounded-full bg-ok" />
@@ -39,7 +39,7 @@ export function Hero({ lang }: { lang: Lang }) {
               </span>
             </div>
 
-            <h1 className="mt-7 text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+            <h1 className="mt-7 text-[2rem] font-semibold leading-[1.1] tracking-tight text-fg min-[400px]:text-4xl sm:text-5xl">
               {profile.name}
               <span className="mt-1 block text-gradient">
                 {t(profile.role, lang)
@@ -52,7 +52,7 @@ export function Hero({ lang }: { lang: Lang }) {
                   ))}
               </span>
             </h1>
-            <p className="mt-5 text-lg font-medium text-fg/90">{t(profile.headline, lang)}</p>
+            <p className="mt-5 text-base font-medium text-fg/90 min-[400px]:text-lg">{t(profile.headline, lang)}</p>
             <p className="mt-3 max-w-xl leading-relaxed text-muted">{t(profile.intro, lang)}</p>
 
             <div className="mt-auto pt-8">
@@ -175,8 +175,8 @@ export function Hero({ lang }: { lang: Lang }) {
         <BlurFade delay={0.2} className="sm:col-span-2 lg:col-span-4">
           <div className="card grid grid-cols-2 divide-line sm:grid-cols-4 sm:divide-x">
             {stats.map((s) => (
-              <div key={s.value} className="px-6 py-5">
-                <p className="text-3xl font-semibold tracking-tight text-fg sm:text-[2rem]">
+              <div key={s.value} className="px-4 py-4 sm:px-6 sm:py-5">
+                <p className="text-[1.65rem] font-semibold tracking-tight text-fg min-[400px]:text-3xl sm:text-[2rem]">
                   <NumberTicker value={s.value} locale={lang === "es" ? "es-CR" : "en-US"} />
                   <span className="text-accent">{s.suffix}</span>
                 </p>
