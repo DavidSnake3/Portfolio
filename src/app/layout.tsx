@@ -13,8 +13,9 @@ export const metadata: Metadata = {
     description: profile.intro,
     url: "https://davidsnake3.github.io/Portfolio/",
     type: "profile",
-    images: [{ url: "/Portfolio/avatar.jpg", width: 420, height: 420 }],
+    images: [{ url: "/Portfolio/og.png", width: 1200, height: 630, alt: `${profile.name} — ${profile.role}` }],
   },
+  twitter: { card: "summary_large_image", images: ["/Portfolio/og.png"] },
   icons: { icon: "/Portfolio/avatar.jpg" },
 };
 
