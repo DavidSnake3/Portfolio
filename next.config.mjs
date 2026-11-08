@@ -1,27 +1,14 @@
-import mdx from "@next/mdx";
-
-const withMDX = mdx({
-  extension: /\.mdx?$/,
-  options: {},
-});
+// Static export for GitHub Pages (https://davidsnake3.github.io/Portfolio).
+// If the repo is ever renamed to davidsnake3.github.io, set BASE_PATH="" .
+const basePath = process.env.BASE_PATH ?? "/Portfolio";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export",
+  basePath,
   trailingSlash: true,
-  basePath: '/Portfolio',
-  assetPrefix: '/Portfolio/',
-  pageExtensions: ["ts", "tsx", "md", "mdx"],
-  images: {
-    unoptimized: true,
-  },
-  // IGNORAR ERRORES durante el build
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  images: { unoptimized: true },
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };
 
-export default withMDX(nextConfig);
+export default nextConfig;
