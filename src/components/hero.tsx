@@ -7,6 +7,7 @@ import { ui } from "@/data/ui";
 import { t, type Lang } from "@/lib/i18n";
 import { asset } from "@/lib/utils";
 import { ArrowUpRight, Clock, Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Fragment } from "react";
 
 export function Hero({ lang }: { lang: Lang }) {
   const other: Lang = lang === "en" ? "es" : "en";
@@ -44,10 +45,10 @@ export function Hero({ lang }: { lang: Lang }) {
                 {t(profile.role, lang)
                   .split(" ")
                   .map((w, k) => (
-                    <span key={k} className={w.includes("-") ? "whitespace-nowrap" : undefined}>
-                      {k > 0 ? " " : ""}
-                      {w}
-                    </span>
+                    <Fragment key={k}>
+                      {k > 0 && " "}
+                      <span className={w.includes("-") ? "whitespace-nowrap" : undefined}>{w}</span>
+                    </Fragment>
                   ))}
               </span>
             </h1>
